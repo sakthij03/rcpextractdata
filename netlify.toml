@@ -1,0 +1,11 @@
+[build]
+  command = "pip install -r requirements.txt && mkdir -p templates static"
+  publish = "."
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[functions]
+  directory = "functions"
