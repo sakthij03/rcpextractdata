@@ -1,11 +1,16 @@
 [build]
-  command = "pip install -r requirements.txt && mkdir -p templates static"
   publish = "."
-
+  command = "pip install -r requirements.txt -t netlify/functions/python"
+ 
+[functions]
+  directory = "netlify/functions"
+ 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
-[functions]
-  directory = "functions"
+ 
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
